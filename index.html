@@ -17,6 +17,8 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
             
         <link href="css/styles.css" rel="stylesheet" />
         
@@ -111,7 +113,7 @@
                     <div class="subheading mb-5">
                         Cloud Developer &nbsp <span>&#8226;</span> &nbsp Senior Math/Computer Science Teacher &nbsp <span>&#8226;</span> &nbsp Hanoi, Vietnam 
                     </div>
-                    <p class="lead mb-5">As a Senior Teacher, I successfully manage classes of students and mentor colleagues. I motivate students to work towards a high level of achievement while following a data-driven approach. As a Cloud Developer, I write serverless microservices, Infrastructure as Code, and Continuous Integration and Delivery pipelines. I seek to join a strong DevOps team with good leadership and a culture for life-long learning.</p>
+                    <p class="lead mb-5">As a Senior Teacher, I successfully manage classes of students and mentor colleagues. I motivate students to work towards a high level of achievement while following a data-driven approach. As a Cloud Developer, I create serverless microservices, Infrastructure as Code, and Continuous Integration and Delivery pipelines. I seek to join a strong DevOps team with good leadership and a culture for life-long learning.</p>
                     <div class="social-icons">
                         <a class="social-icon" href="https://www.linkedin.com/in/anthony-grear/"><i class="fab fa-linkedin-in"></i></a>
                         <a class="social-icon" href="https://github.com/anthony-grear/"><i class="fab fa-github"></i></a>
@@ -170,7 +172,7 @@
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Bachelor of Science in Education</h3>
                             <div class="subheading mb-3">Ohio University</div>
-                            <div>Mathematics</div>
+                            <div>Mathematics and Social Studies</div>
                             <!-- <p>GPA: x.xx</p> -->
                         </div>
                         <!-- <div class="flex-shrink-0"><span class="text-primary">2002 - 2007</span></div> -->
@@ -213,15 +215,19 @@
                         <h4>Name:</h4>
                         <input type="text" style="height:35px;" id="name-input" placeholder="Enter name here…" class="form-control" style="width:100%;" /><br/>
                         <h4>Phone:</h4>
-                        <input type="phone" style="height:35px;" id="phone-input" placeholder="Enter phone number" class="form-control" style="width:100%;"/><br/>
+                        <input type="phone" style="height:35px;" id="phone-input" placeholder="Enter phone number…" class="form-control" style="width:100%;"/><br/>
                         <h4>Email:</h4>
                         <input type="email" style="height:35px;" id="email-input" placeholder="Enter email here…" class="form-control" style="width:100%;"/><br/>
-                        <h4>Message</h4>
+                        <h4>Message:</h4>
                         <textarea id="description-input" rows="3" placeholder="Enter your message…" class="form-control" style="width:100%;"></textarea><br/>
-                        <div class="g-recaptcha" data-sitekey="6Lc7cVMUAAAAAM1yxf64wrmO8gvi8A1oQ_ead1ys" class="form-control" style="width:100%;"></div>
+                        <div class="g-recaptcha" data-sitekey="6Lek5asbAAAAALFHzi0DrmZqg9sGX1eyFcBmKOi0" data-callback=”ccb” class="form-control" style="width:100%;"></div>
                         <button type="button" onClick="submitToAPI(event)" class="btn btn-primary" style="margin-top:20px;">Submit</button>
+                        <br/>
+                        
                     </form>
+                    
                 </div>
+                
             </section>
         </div>
         <!-- Bootstrap core JS-->
