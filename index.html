@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Anthony Grear AWS DevOps Python</title>
+        <title>Anthony Grear AWS Python Flask REST API </title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
@@ -52,11 +52,13 @@
             var phone = $("#phone-input").val();
             var email = $("#email-input").val();
             var desc = $("#description-input").val();
+            var captchaResponse = $('#g-recaptcha-response').val();
             var data = {
                name : name,
                phone : phone,
                email : email,
-               desc : desc
+               desc : desc,
+               captchaResponse : captchaResponse
              };
      
             $.ajax({
@@ -68,9 +70,10 @@
               data: JSON.stringify(data),
      
               
-              success: function () {
+              success: function(response) {
                 // clear form and show a success message
-                alert("Successful");
+                
+                alert(response.body);
                 document.getElementById("contact-form").reset();
             location.reload();
               },
@@ -113,7 +116,7 @@
                     <div class="subheading mb-5">
                         Cloud Developer &nbsp <span>&#8226;</span> &nbsp Senior Math/Computer Science Teacher &nbsp <span>&#8226;</span> &nbsp Hanoi, Vietnam 
                     </div>
-                    <p class="lead mb-5">As a Senior Teacher, I successfully manage classes of students and mentor colleagues. I motivate students to work towards a high level of achievement while following a data-driven approach. As a Cloud Developer, I create serverless microservices, Infrastructure as Code, and Continuous Integration and Delivery pipelines. I seek to join a strong DevOps team with good leadership and a culture for life-long learning.</p>
+                    <p class="lead mb-5">As a Senior Teacher, I successfully manage and motivate approximately 80 students per year. As a Cloud Developer, I create serverless microservices using AWS, REST APIs with Flask and Python, and Infrastructure as Code. I seek to join a strong team with good leadership and a culture for life-long learning.</p>
                     <div class="social-icons">
                         <a class="social-icon" href="https://www.linkedin.com/in/anthony-grear/"><i class="fab fa-linkedin-in"></i></a>
                         <a class="social-icon" href="https://github.com/anthony-grear/"><i class="fab fa-github"></i></a>
@@ -220,12 +223,16 @@
                         <input type="email" style="height:35px;" id="email-input" placeholder="Enter email here…" class="form-control" style="width:100%;"/><br/>
                         <h4>Message:</h4>
                         <textarea id="description-input" rows="3" placeholder="Enter your message…" class="form-control" style="width:100%;"></textarea><br/>
-                        <div class="g-recaptcha" data-sitekey="6Lek5asbAAAAALFHzi0DrmZqg9sGX1eyFcBmKOi0" data-callback=”ccb” class="form-control" style="width:100%;"></div>
-                        <button type="button" onClick="submitToAPI(event)" class="btn btn-primary" style="margin-top:20px;">Submit</button>
+                        <div class="g-recaptcha" ; data-sitekey="6Lek5asbAAAAALFHzi0DrmZqg9sGX1eyFcBmKOi0" data-callback="ccb" style="width:100%"></div>
+                        <button id="button-contact-form" type="button" disabled onClick="submitToAPI(event)" class="btn btn-primary" style="margin-top:20px;">Submit</button>
                         <br/>
                         
                     </form>
-                    
+                    <script>
+                        function ccb(response) {
+                        document.getElementById("button-contact-form").disabled = false;
+                        }
+                    </script>
                 </div>
                 
             </section>
